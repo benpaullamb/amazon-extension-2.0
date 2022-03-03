@@ -1,0 +1,73 @@
+@use 'theme' as theme;
+
+.product {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: theme.$primary;
+  }
+
+  .image {
+    height: 100px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    box-shadow: inset 0 -2rem 1rem -1rem #000;
+  }
+
+  .tags {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    .bestSeller {
+      margin-right: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      background: theme.$primary;
+      border-radius: 10rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .prime {
+      width: 53px;
+      height: 15px;
+      display: inline-block;
+      background-image: url('https://m.media-amazon.com/images/S/sash/E6vgqiIirWgGb3f.png');
+      background-size: 512px 256px;
+      background-position: -185px -182px;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .price {
+    margin-top: 0.5rem;
+    display: block;
+    font-size: 20px;
+  }
+
+  .rating {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    .ratingCount {
+      margin-left: 0.5rem;
+      margin-top: 1px;
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .name {
+    margin-top: 0.5rem;
+    display: block;
+    font-size: 16px;
+  }
+}

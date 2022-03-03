@@ -1,0 +1,11 @@
+@use 'theme' as theme;
+
+.rating {
+  display: flex;
+  align-items: center;
+
+  .star {
+    color: theme.$primary;
+    font-size: 20px;
+  }
+}
