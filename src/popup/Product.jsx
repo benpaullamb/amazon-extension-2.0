@@ -29,10 +29,13 @@ export default function Product({ name, bestSeller, link, image, rating, ratingC
 
       <span className={style.price}>{formattedPrice}</span>
 
-      <div className={style.rating}>
-        <Rating rating={rating} />
-        <span className={style.ratingCount}>{formattedRatingCount}</span>
-      </div>
+      {ratingCount === 0 && <span className={style.noRating}>No ratings</span>}
+      {ratingCount > 0 && (
+        <div className={style.rating}>
+          <Rating rating={rating} />
+          <span className={style.ratingCount}>{formattedRatingCount}</span>
+        </div>
+      )}
 
       <span className={style.name}>{truncatedName}</span>
     </a>

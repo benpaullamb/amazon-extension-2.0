@@ -47,10 +47,10 @@ npm run dev
 
 ## Roadmap
 
-No planned features.
-
-- [ ] Feature
-- [ ] Feature
+- [ ] Open best seller on product
+- [ ] Open best seller on page
+- [ ] Open top 10 results
+- [ ] Amazon's Choice tag
 
 ## Release History
 
