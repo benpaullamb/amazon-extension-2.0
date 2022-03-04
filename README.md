@@ -50,6 +50,7 @@ npm run dev
 - [ ] Open best seller on product
 - [ ] Open best seller on page
 - [ ] Extract button, input group, and tag
+- [ ] Fix Amazon Choice image as product image
 - [ ] Icon
 
 ## Release History
