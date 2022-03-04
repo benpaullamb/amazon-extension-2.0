@@ -50,6 +50,9 @@ npm run dev
 - [ ] Open best seller on product
 - [ ] Open best seller on page
 - [ ] Amazon's Choice tag
+- [ ] Extract button, input group, and tag
+- [ ] Product count
+- [ ] Icon
 
 ## Release History
 

@@ -26,6 +26,8 @@ export default function App() {
 
       <Toolbar products={products} setDisplayProducts={setDisplayProducts} />
 
+      <span className={style.resultCount}>{displayProducts.length} product(s)</span>
+
       <div className={style.products}>
         {displayProducts.map((product) => (
           <Product {...product} />

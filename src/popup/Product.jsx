@@ -3,7 +3,7 @@ import style from './Product.module.scss';
 import numeral from 'numeral';
 import Rating from './Rating';
 
-export default function Product({ name, bestSeller, link, image, rating, ratingCount, price, prime }) {
+export default function Product({ name, bestSeller, link, image, rating, ratingCount, price, prime, amazonChoice }) {
   const truncatedName = useMemo(() => {
     const maxLength = 100;
     if (name.length > maxLength) {
@@ -24,6 +24,7 @@ export default function Product({ name, bestSeller, link, image, rating, ratingC
 
       <div className={style.tags}>
         {bestSeller && <span className={style.bestSeller}>Best Seller</span>}
+        {amazonChoice && <span className={style.amazonChoice}>Amazon's Choice</span>}
         {prime && <i className={style.prime} />}
       </div>
 

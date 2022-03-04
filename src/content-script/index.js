@@ -1,3 +1,5 @@
+import hash from 'hash.js';
+
 const productAttributes = {
   name(el) {
     return el.querySelector('h2 a span')?.textContent;
@@ -6,6 +8,11 @@ const productAttributes = {
   bestSeller(el) {
     const bestSellerEl = el.querySelector('span[id$="best-seller"]');
     return !!bestSellerEl;
+  },
+
+  amazonChoice(el) {
+    const amazonChoiceEl = el.querySelector('span[aria-label="Amazon\'s Choice"]');
+    return !!amazonChoiceEl;
   },
 
   link(el) {
@@ -57,7 +64,7 @@ const productAttributes = {
 const getProducts = () => {
   const productElements = Array.from(document.querySelectorAll('[data-asin]'));
 
-  return productElements
+  let products = productElements
     .map((productElement) => {
       const product = {};
 
@@ -65,9 +72,33 @@ const getProducts = () => {
         product[attribute] = getAttribute(productElement);
       });
 
+      product.hash = createHash(product);
+
       return product;
     })
     .filter((product) => !!product.name);
+
+  products = getUniques(products);
+
+  return products;
+};
+
+const getUniques = (products) => {
+  const uniques = [];
+
+  products.forEach((product) => {
+    const isUnique = !uniques.includes(product.hash);
+    if (isUnique) {
+      uniques.push(product.hash);
+    }
+  });
+
+  return products.filter((product) => uniques.includes(product.hash));
+};
+
+const createHash = ({ name, price, rating, ratingCount }) => {
+  const productString = `${name}${price}${rating}${ratingCount}`;
+  return hash.sha256().update(productString).digest('hex');
 };
 
 chrome.runtime.onMessage.addListener((req, sender, res) => {
