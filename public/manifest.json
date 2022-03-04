@@ -11,5 +11,6 @@
   "action": {
     "default_title": "Amazon Search Helper 2.0",
     "default_popup": "./src/popup/index.html"
-  }
+  },
+  "permissions": ["tabGroups"]
 }

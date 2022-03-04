@@ -9,7 +9,7 @@ export default function Toolbar({ products, setDisplayProducts }) {
   const sortOptions = ['Default', 'Ratings'];
   const [sort, setSort] = useState(sortOptions[0]);
 
-  useEffect(() => {
+  const getDisplayProducts = () => {
     let displayProducts = [...products];
 
     if (name) {
@@ -38,10 +38,34 @@ export default function Toolbar({ products, setDisplayProducts }) {
       });
     }
 
-    setDisplayProducts(displayProducts);
+    return displayProducts;
+  };
+
+  useEffect(() => {
+    setDisplayProducts(getDisplayProducts());
   }, [name, minRatings, sort]);
 
-  const openTopTen = () => {};
+  const openTopTen = async () => {
+    const topTen = getDisplayProducts().slice(0, 10);
+
+    const tabs = await Promise.all(
+      topTen.map(({ link }) => {
+        return chrome.tabs.create({
+          url: link,
+          active: false,
+        });
+      })
+    );
+
+    const groupId = await chrome.tabs.group({
+      tabIds: tabs.map(({ id }) => id),
+    });
+
+    chrome.tabGroups.update(groupId, {
+      title: 'Amazon',
+      color: 'orange',
+    });
+  };
 
   const openBestSellers = () => {};
 

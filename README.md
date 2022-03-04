@@ -49,7 +49,6 @@ npm run dev
 
 - [ ] Open best seller on product
 - [ ] Open best seller on page
-- [ ] Open top 10 results
 - [ ] Amazon's Choice tag
 
 ## Release History
