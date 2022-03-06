@@ -82,7 +82,7 @@ export default function Toolbar({ products, setDisplayProducts }) {
           />
         </div>
         <div className={style.inputGroup}>
-          <label>Minium Ratings</label>
+          <label>Minimum Ratings</label>
           <input
             value={minRatings}
             onChange={(e) => setMinRatings(Number(e.currentTarget.value))}

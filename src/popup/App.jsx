@@ -12,7 +12,7 @@ export default function App() {
       const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
       const tabId = tabs[0].id;
 
-      chrome.tabs.sendMessage(tabId, 'get_products', (res) => {
+      chrome.tabs.sendMessage(tabId, 'get_products', (res = []) => {
         setProducts(res);
         setDisplayProducts(res);
       });
@@ -24,15 +24,23 @@ export default function App() {
     <div className={style.container}>
       <h1 className={style.title}>Amazon Extension v2.0</h1>
 
-      <Toolbar products={products} setDisplayProducts={setDisplayProducts} />
+      {products.length === 0 && (
+        <h2 className={style.error}>Please search for a product on Amazon, then open this extension.</h2>
+      )}
 
-      <span className={style.resultCount}>{displayProducts.length} product(s)</span>
+      {products.length > 0 && (
+        <>
+          <Toolbar products={products} setDisplayProducts={setDisplayProducts} />
 
-      <div className={style.products}>
-        {displayProducts.map((product) => (
-          <Product {...product} />
-        ))}
-      </div>
+          <span className={style.resultCount}>{displayProducts.length} product(s)</span>
+
+          <div className={style.products}>
+            {displayProducts.map((product) => (
+              <Product {...product} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
