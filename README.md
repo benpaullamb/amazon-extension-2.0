@@ -57,6 +57,7 @@ After each change, re-compile and press the refresh button on the extension on t
 
 ## Roadmap
 
+- [ ] Product mismatch?
 - [ ] Fix products with a price range
 - [ ] Fix Amazon Choice image as product image
 - [ ] Icon
