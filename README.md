@@ -47,8 +47,8 @@ npm run dev
 
 ## Roadmap
 
-- [ ] Open best seller on product
-- [ ] Open best seller on page
+- [x] Open best seller on product
+- [x] Open best seller on page
 - [ ] Extract button, input group, and tag
 - [ ] Remove invisible products
 - [ ] Fix products with a price range

@@ -1,6 +1,6 @@
 import style from './Toolbar.module.scss';
 import Dropdown from './Dropdown';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function Toolbar({ products, setDisplayProducts }) {
   const [name, setName] = useState('');
@@ -9,11 +9,11 @@ export default function Toolbar({ products, setDisplayProducts }) {
   const sortOptions = ['Default', 'Ratings'];
   const [sort, setSort] = useState(sortOptions[0]);
 
-  const getDisplayProducts = () => {
-    let displayProducts = [...products];
+  const displayProducts = useMemo(() => {
+    let output = [...products];
 
     if (name) {
-      displayProducts = displayProducts.filter((product) => {
+      output = output.filter((product) => {
         const productName = product.name.toLowerCase();
         const searchName = name.toLowerCase();
         return productName.includes(searchName);
@@ -21,13 +21,13 @@ export default function Toolbar({ products, setDisplayProducts }) {
     }
 
     if (minRatings) {
-      displayProducts = displayProducts.filter((product) => {
+      output = output.filter((product) => {
         return product.ratingCount >= minRatings;
       });
     }
 
     if (sort === 'Ratings') {
-      displayProducts.sort((a, b) => {
+      output.sort((a, b) => {
         if (a.ratingCount > b.ratingCount) {
           return -1;
         }
@@ -38,23 +38,35 @@ export default function Toolbar({ products, setDisplayProducts }) {
       });
     }
 
-    return displayProducts;
-  };
+    return output;
+  }, [products, name, minRatings, sort]);
 
   useEffect(() => {
-    setDisplayProducts(getDisplayProducts());
-  }, [name, minRatings, sort]);
+    setDisplayProducts(displayProducts);
+  }, [products, name, minRatings, sort]);
 
   const openTopTen = async () => {
-    const topTen = getDisplayProducts().slice(0, 10);
+    const topTen = displayProducts.slice(0, 10);
 
+    openTabGroup(topTen.map(({ link }) => link));
+  };
+
+  const openBestSellers = () => {
+    const bestSellerPages = displayProducts
+      .filter(({ bestSeller }) => !!bestSeller)
+      .map(({ bestSeller }) => bestSeller);
+
+    openTabGroup(bestSellerPages, 'Best Sellers');
+  };
+
+  const openTabGroup = async (urls = [], title = 'Amazon', color = 'orange') => {
     const tabs = await Promise.all(
-      topTen.map(({ link }) => {
-        return chrome.tabs.create({
-          url: link,
+      urls.map((url) =>
+        chrome.tabs.create({
+          url,
           active: false,
-        });
-      })
+        })
+      )
     );
 
     const groupId = await chrome.tabs.group({
@@ -62,12 +74,10 @@ export default function Toolbar({ products, setDisplayProducts }) {
     });
 
     chrome.tabGroups.update(groupId, {
-      title: 'Amazon',
-      color: 'orange',
+      title,
+      color,
     });
   };
-
-  const openBestSellers = () => {};
 
   return (
     <div className={style.toolbar}>
