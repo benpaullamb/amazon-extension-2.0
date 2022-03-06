@@ -47,10 +47,7 @@ npm run dev
 
 ## Roadmap
 
-- [x] Open best seller on product
-- [x] Open best seller on page
 - [ ] Extract button, input group, and tag
-- [ ] Remove invisible products
 - [ ] Fix products with a price range
 - [ ] Fix Amazon Choice image as product image
 - [ ] Icon

@@ -65,6 +65,10 @@ const getProducts = () => {
   const productElements = Array.from(document.querySelectorAll('[data-asin]'));
 
   let products = productElements
+    .filter((productElement) => {
+      const { value: display } = productElement.computedStyleMap().get('display');
+      return display !== 'none';
+    })
     .map((productElement) => {
       const product = {};
 
