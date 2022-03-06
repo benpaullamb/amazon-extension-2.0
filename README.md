@@ -4,11 +4,9 @@
 
 ## About this Project
 
-Summary
+A Chrome Extension that provides more search/filter/sort functionality on Amazon search results pages.
 
 ![Screenshot of the app](./screenshot.png)
-
-Description
 
 ### Built with
 
@@ -31,19 +29,31 @@ Description
 npm i
 ```
 
-2. Run the build tool.
+2. Compile the project.
 
 ```
-npm run dev
+npm run build
 ```
+
+3. Deploy locally - see deployment section.
+
+After each change, re-compile and press the refresh button on the extension on the Chrome Extensions page.
 
 ## Deployment
 
-...
+1. Open Chrome to "chrome://extensions/".
+
+2. Enable developer mode in the top right.
+
+3. Click "load unpacked" in the top left.
+
+4. Select the dist folder in this repo.
 
 ## Usage
 
-...
+1. Search for something on Amazon.
+
+2. Press the extension icon in the top left.
 
 ## Roadmap
 
