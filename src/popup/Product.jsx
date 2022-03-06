@@ -20,10 +20,14 @@ export default function Product({ name, bestSeller, link, image, rating, ratingC
 
   return (
     <a href={link} target="_blank" className={style.product}>
-      <div style={{ backgroundImage: `url("${image}")` }} className={style.image} />
+      <img src={image} alt={name} className={style.image} />
 
       <div className={style.tags}>
-        {bestSeller && <span className={style.bestSeller}>Best Seller</span>}
+        {bestSeller && (
+          <a href={bestSeller} target="_blank" className={style.bestSeller}>
+            Best Seller
+          </a>
+        )}
         {amazonChoice && <span className={style.amazonChoice}>Amazon's Choice</span>}
         {prime && <i className={style.prime} />}
       </div>

@@ -6,8 +6,8 @@ const productAttributes = {
   },
 
   bestSeller(el) {
-    const bestSellerEl = el.querySelector('span[id$="best-seller"]');
-    return !!bestSellerEl;
+    const bestSellerEl = el.querySelector('a[href*="bestsellers"]');
+    return bestSellerEl ? bestSellerEl.href : undefined;
   },
 
   amazonChoice(el) {
