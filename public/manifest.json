@@ -12,5 +12,8 @@
     "default_title": "Amazon Search Helper 2.0",
     "default_popup": "./src/popup/index.html"
   },
-  "permissions": ["tabGroups"]
+  "permissions": ["tabGroups"],
+  "icons": {
+    "152": "icon152.png"
+  }
 }
