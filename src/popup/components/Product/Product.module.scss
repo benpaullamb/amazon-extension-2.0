@@ -1,4 +1,4 @@
-@use 'theme' as theme;
+@use '../../theme' as theme;
 
 .product {
   padding: 1rem;
@@ -25,23 +25,23 @@
     display: flex;
     align-items: center;
 
-    .bestSeller {
-      margin-right: 0.25rem;
+    .tag {
       padding: 0.25rem 0.5rem;
-      background: theme.$primary;
+      margin-right: 0.25rem;
       border-radius: 10rem;
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
 
+    .bestSeller {
+      @extend .tag;
+      background: theme.$primary;
+    }
+
     .amazonChoice {
-      margin-right: 0.25rem;
-      padding: 0.25rem 0.5rem;
+      @extend .tag;
       background: theme.$tertiary;
-      border-radius: 10rem;
-      color: white;
-      font-weight: bold;
     }
 
     .prime {

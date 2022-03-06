@@ -1,0 +1,25 @@
+@use '../../theme' as theme;
+
+.input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.25rem;
+    font-size: 14px;
+  }
+
+  input {
+    padding: 0.5rem;
+    background: white;
+    border: 1px solid theme.$secondary;
+    border-radius: 4px;
+    transition: box-shadow 150ms;
+    font-size: 16px;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+  }
+}

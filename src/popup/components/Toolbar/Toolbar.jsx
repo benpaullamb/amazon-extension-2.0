@@ -1,6 +1,8 @@
 import style from './Toolbar.module.scss';
-import Dropdown from './Dropdown';
 import { useState, useEffect, useMemo } from 'react';
+import Dropdown from '../Dropdown';
+import Input from '../Input';
+import Button from '../Button';
 
 export default function Toolbar({ products, setDisplayProducts }) {
   const [name, setName] = useState('');
@@ -82,35 +84,31 @@ export default function Toolbar({ products, setDisplayProducts }) {
   return (
     <div className={style.toolbar}>
       <div className={style.topRow}>
-        <div className={style.inputGroup}>
-          <label>Name</label>
-          <input
-            value={name}
-            onChange={(e) => setName(e.currentTarget.value)}
-            type="text"
-            placeholder="Enter a name..."
-          />
-        </div>
-        <div className={style.inputGroup}>
-          <label>Minimum Ratings</label>
-          <input
-            value={minRatings}
-            onChange={(e) => setMinRatings(Number(e.currentTarget.value))}
-            min={0}
-            step={100}
-            type="number"
-          />
-        </div>
+        <Input
+          label="Name"
+          value={name}
+          onChange={(e) => setName(e.currentTarget.value)}
+          type="text"
+          placeholder="Enter a name..."
+        />
+        <Input
+          label="Minimum Ratings"
+          value={minRatings}
+          onChange={(e) => setMinRatings(Number(e.currentTarget.value))}
+          min={0}
+          step={100}
+          type="number"
+        />
       </div>
 
       <div className={style.bottomRow}>
         <div className={style.buttons}>
-          <button onClick={openTopTen} className={style.button}>
+          <Button onClick={openTopTen} className={style.button}>
             Open Top 10
-          </button>
-          <button onClick={openBestSellers} className={style.button}>
+          </Button>
+          <Button onClick={openBestSellers} className={style.button}>
             Open Best Sellers
-          </button>
+          </Button>
         </div>
 
         <Dropdown options={sortOptions} value={sort} onChange={(option) => setSort(option)} />

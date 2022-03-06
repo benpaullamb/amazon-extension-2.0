@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import style from './Product.module.scss';
 import numeral from 'numeral';
-import Rating from './Rating';
+import Rating from '../Rating';
 
 export default function Product({ name, bestSeller, link, image, rating, ratingCount, price, prime, amazonChoice }) {
   const truncatedName = useMemo(() => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import style from './App.module.scss';
-import Product from './Product';
-import Toolbar from './Toolbar';
+import Product from './components/Product';
+import Toolbar from './components/Toolbar';
 
 export default function App() {
   const [products, setProducts] = useState([]);
