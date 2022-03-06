@@ -47,12 +47,13 @@ npm run dev
 
 ## Roadmap
 
-- [ ] Extract button, input group, and tag
 - [ ] Fix products with a price range
 - [ ] Fix Amazon Choice image as product image
 - [ ] Icon
 
 ## Release History
 
+- v0.2.0
+  - All base features
 - v0.1.0
   - Initial design
