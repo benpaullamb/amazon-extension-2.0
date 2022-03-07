@@ -6,6 +6,7 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   root: './src/privacy-policy',
+  base: '/amazon-extension-2.0/',
   build: {
     outDir: '../../docs',
     assetsDir: './',
