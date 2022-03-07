@@ -8,6 +8,14 @@ A Chrome Extension that provides more search/filter/sort functionality on Amazon
 
 ![Screenshot of the app](./screenshot.png)
 
+### Features
+
+- Filter by name
+- Filter by minimum ratings
+- Sort by ratings
+- Open top 10 results
+- Open best sellers
+
 ### Built with
 
 - Chrome Extensions
@@ -58,8 +66,6 @@ After each change, re-compile and press the refresh button on the extension on t
 ## Roadmap
 
 - [ ] Fix products with a price range
-- [ ] Fix Amazon Choice image as product image
-- [ ] New name
 
 ## Release History
 
