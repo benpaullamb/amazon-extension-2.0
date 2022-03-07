@@ -6,6 +6,8 @@
 
 A Chrome Extension that provides more search/filter/sort functionality on Amazon search results pages.
 
+[Privacy Policy](https://benpaullamb.github.io/amazon-extension-2.0/)
+
 ![Screenshot of the app](./screenshot.png)
 
 ### Features
