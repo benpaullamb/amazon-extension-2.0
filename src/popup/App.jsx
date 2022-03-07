@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <div className={style.container}>
-      <h1 className={style.title}>Amazon Extension v2.0</h1>
+      <h1 className={style.title}>Lamb AMZN Search Helper</h1>
 
       {products.length === 0 && (
         <h2 className={style.error}>Please search for a product on Amazon, then open this extension.</h2>

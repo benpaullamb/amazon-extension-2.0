@@ -1,7 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Amazon Extension",
+  "name": "Lamb AMZN Search Helper",
   "version": "2.0.0",
+  "description": "A tool that provides more search/filter/sort functionality on Amazon search results pages.",
+  "icons": {
+    "152": "icon152.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://*.amazon.co.uk/s*"],
@@ -9,11 +13,8 @@
     }
   ],
   "action": {
-    "default_title": "Amazon Search Helper 2.0",
+    "default_title": "Lamb AMZN Search Helper",
     "default_popup": "./src/popup/index.html"
   },
-  "permissions": ["tabGroups"],
-  "icons": {
-    "152": "icon152.png"
-  }
+  "permissions": ["tabGroups"]
 }
